@@ -7,7 +7,8 @@ import AccountScreen from './account.component';
 import CartScreen from './cart.component';
 import NearByScreen from './nearby.component';
 import { SafeAreaView } from 'react-navigation';
-import { Button, Divider, Layout,BottomNavigation, BottomNavigationTab,Icon } from '@ui-kitten/components';
+import { Button, Divider, Layout,BottomNavigation, BottomNavigationTab, Icon } from '@ui-kitten/components';
+
 const HomeIcon = (style) => (
   <Icon {...style} name='home' />
 );
@@ -38,13 +39,19 @@ export const TabBarComponent = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-const HomeNavigator = createBottomTabNavigator({
+ const AppNavigation  = createBottomTabNavigator(
+ {
   Home: HomeScreen,
   NearBy: NearByScreen,
   Cart: CartScreen,
   Account: AccountScreen,
-}, {
+ }, 
+ {
+   initialRouteName: 'Home'
+ },
+ {
   tabBarComponent:TabBarComponent
-});
+ },
+);
 
-export const AppNavigator = createAppContainer(HomeNavigator);
+export default AppNavigation ;

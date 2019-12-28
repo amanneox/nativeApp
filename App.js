@@ -3,14 +3,14 @@ import { ApplicationProvider, Layout, Text, IconRegistry  } from '@ui-kitten/com
 import { mapping, light as lightTheme } from '@eva-design/eva';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { default as appTheme } from './custom-theme.json'; // <-- Import app theme
-import { AppNavigator } from './components/navigation.component';
+import  AppContainer  from './components/AppNavigator';
 const theme = { ...lightTheme, ...appTheme };
 
 const App = () => (
   <React.Fragment>
     <IconRegistry icons={EvaIconsPack}></IconRegistry>
     <ApplicationProvider mapping={mapping} theme={theme}>
-       <AppNavigator/>
+       <AppContainer/>
     </ApplicationProvider>
   </React.Fragment>
 );
